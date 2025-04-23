@@ -1,0 +1,49 @@
+﻿   @using EspTest3.Bl;
+
+   @inject ILED led 
+   @inject IAction action 
+
+   @model TblLedAction;
+
+
+<form method="post" enctype="multipart/form-data"
+      asp-controller="Home"
+      asp-action="Save"
+      role="form">
+
+
+
+    <div class="form-group">
+
+        <div class="form-control-wrap">
+
+            <select id="ledComboBox"
+                    asp-for="LedId"
+                    asp-items="@(new SelectList(led.GetLEDList(),"LedId","LedColour"))">
+            </select>
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="form-control-wrap">
+
+            @foreach (var item in action.GetActionList())
+            {
+                <button class="form-control" type="submit" name="ActionId" value="@item.ActionId">
+                    @item.Description
+                </button>
+            }
+        </div>
+
+    </div>
+
+</form>
+<br />
+<br />
+<br />
+<div>
+    <button class="form-control" onclick="window.location.href='Home/HistoryList';">Go to History Page</button>
+</div>

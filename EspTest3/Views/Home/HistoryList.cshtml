@@ -1,0 +1,63 @@
+﻿@model List<DetailsViewModel>
+
+<div class="align-content-center">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <form method="post" enctype="multipart/form-data" 
+          role="form">
+        <div class="form-group">
+            <h1>HistoryList</h1>
+        </div>
+
+        <div class="form-group">
+
+
+
+            @try
+            {
+                if (Model != null)
+                {
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>LED</th>
+                                <th>Status</th>
+                                <th>Date/Time</th>
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.LedColour</td>
+                                    <td>@item.ActionDes</td>
+                                    <td>@item.Time</td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <h1>No Item Found</h1>
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        </div>
+
+    </form>
+</div>
