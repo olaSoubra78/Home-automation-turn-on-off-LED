@@ -53,6 +53,7 @@ namespace EspTest3.Controllers
 
                 }
 
+                //TblLedAction myAction = new TblLedAction();
                 TblLedAction myAction = new TblLedAction();
                 myAction.LedId = model.LedId;
                 myAction.Time = DateTime.Now;
